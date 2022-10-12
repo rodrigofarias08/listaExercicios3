@@ -1,7 +1,7 @@
 
 
-//6. modificar ex.5. salvar outro vetor com a quantidade carros vendidos em cada mês. Imprimir.
-
+//7.  modificar ex.6. pedir para o usuário digitar o nome de um carro cadastrado.
+//apresentar quantos carros foram vendidos desse tipo.
 
 //Entradas:
 //Vetor de carros vendidos. Cada subvetor contém os carros vendidos em cada mês de janeiro a dezembro:
@@ -40,33 +40,7 @@ for (let numeroMes = 0; numeroMes < 12; numeroMes++) {
 
 
 //Estrutura para contabilizar os carros vendidos em cada mês:
-
 let totalCarrosPorMes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] //Inicializando o contador com o valor inicial.
-
-/*
-//Contadores por mês:
-//carros vendidos em janeiro:
-for (let contador = 0; carrosVendidos[0][contador] !== undefined; contador++) {
-    totalCarrosPorMes[0] = contador + 1
-}
-
-//carros vendidos em fevereiro:
-for (let contador = 0; carrosVendidos[1][contador] !== undefined; contador++) {
-    totalCarrosPorMes[1] = contador + 1
-}
-
-//carros vendidos em março:
-for (let contador = 0; carrosVendidos[2][contador] !== undefined; contador++) {
-    totalCarrosPorMes[2] = contador + 1
-}
-
-//Contadores por mês, mas em uma única estrutura:
-for (let numeroMes = 0; numeroMes < 12; numeroMes++) {
-
-    for (let contador = 0; carrosVendidos[numeroMes][contador] !== undefined; contador++) {
-        totalCarrosPorMes[numeroMes] = contador + 1
-    }
-}*/
 
 //Contadores por mês utilizando a propriedade length:
 totalCarrosPorMes = [
@@ -84,6 +58,30 @@ totalCarrosPorMes = [
     carrosVendidos[11].length
 ]
 
-console.log(totalCarrosPorMes.toString())
-console.log(totalCarrosPorMes.join(" - "))
+console.log(`O total de carros vendidos em cada mês é: ${totalCarrosPorMes.join(" - ")}`)
 
+
+//Quantidade por tipo de carro vendido:
+let nomeCarro = prompt(`Digite o nome de um carro para saber a quantidade total de carros vendidos no ano desse tipo: `)
+let nCarrosVendidos = 0
+
+
+for (let numeroMes = 0; numeroMes < 12; numeroMes++) {
+
+    for (let indCarro = 0; carrosVendidos[numeroMes][indCarro] !== undefined; indCarro++)
+        if(carrosVendidos[numeroMes][indCarro] === nomeCarro) nCarrosVendidos++
+}
+
+console.log(`O total de carros vendidos do tipo ${nomeCarro} é: ${nCarrosVendidos}`)
+
+
+/*
+let pares = [0, 2, 4] //
+//para imprimir o 2:
+console.log(pares[1])
+
+let valoresAleatorios = ['gol', [], [], 12, true, [1, 2, [1, 2, 3]]]
+
+//para imprimir o 3:
+console.log(valoresAleatorios[5][2][2])
+*/
